@@ -21,5 +21,11 @@ class Stack{
         let data=this.#stack.pop();
         return data;
     }
+    peek(){
+        if(this.isEmpty){
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+        }
+        return this.#stack[this.#stack.length-1];
+    }
+
 }
- 
