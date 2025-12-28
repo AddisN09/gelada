@@ -4,5 +4,11 @@ class Stack{
     constructor(){
         this.#stack=[];
     }
+    get isEmpty(){
+         if(!this.#stack.length){
+            return true;
+         }
+         return false;
+    }
 }
- 
+  
