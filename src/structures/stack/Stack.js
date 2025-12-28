@@ -30,5 +30,8 @@ class Stack{
     get size(){
         return this.#stack.length;
     }
-
+    clear(){
+        this.#stack.length=0;
+    }
 }
+ 
