@@ -27,5 +27,8 @@ class Stack{
         }
         return this.#stack[this.#stack.length-1];
     }
+    get size(){
+        return this.#stack.length;
+    }
 
 }
