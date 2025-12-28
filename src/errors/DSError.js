@@ -1,6 +1,6 @@
 class DSError extends Error{
     constructor(message){
-        this.message=message;
+        super(message);
         this.name=this.constructor.name;
         if(Error.captureStackTrace){
             Error.captureStackTrace(this,this.constructor);
@@ -8,3 +8,4 @@ class DSError extends Error{
     }
 }
 export {DSError};
+ 
