@@ -21,5 +21,19 @@ class SinglyLinkedList{
         }
         return false;
     }
+    append(value){
+        const newNode=new Node(value);
+        if(this.isEmpty){
+           this.#head=newNode;
+        }
+        else{
+            let temp=this.#head;
+            while(temp.next){
+                temp=temp.next;
+            }
+            temp.next=newNode;
+        }
+        return this.#length++;
+    }
 }
  
