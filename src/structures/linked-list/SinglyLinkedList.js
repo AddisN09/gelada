@@ -15,6 +15,11 @@ class SinglyLinkedList{
         this.#head=null;
         this.#length=0;
     }
+    get isEmpty(){
+        if(!this.#head){
+            return true;
+        }
+        return false;
+    }
 }
-
  
