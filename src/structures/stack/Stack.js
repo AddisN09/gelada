@@ -33,5 +33,15 @@ class Stack{
     clear(){
         this.#stack.length=0;
     }
+    toArray(){
+        if(this.isEmpty){
+            return [];
+        }
+        let store=[];
+        this.#stack.forEach(item=>{
+            store.push(item);
+        });
+       return store;
+    }
 }
  
