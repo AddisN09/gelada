@@ -10,5 +10,9 @@ class Stack{
          }
          return false;
     }
+    push(value){
+        this.#stack.push(value);
+        return this.#stack.length;
+    }
 }
   
