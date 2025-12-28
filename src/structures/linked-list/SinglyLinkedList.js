@@ -8,5 +8,13 @@ class Node{
         this.#next=null;
     }
 }
+class SinglyLinkedList{
+    #head;
+    #length;
+    constructor(){
+        this.#head=null;
+        this.#length=0;
+    }
+}
 
  
