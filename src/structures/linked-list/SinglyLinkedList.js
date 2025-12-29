@@ -1,11 +1,9 @@
 import { AppErrors } from "../../errors/index.js";
  
 class Node{
-    #value;
-    #next;
     constructor(value){
-        this.#value=value;
-        this.#next=null;
+        this.value=value;
+        this.next=null;
     }
 }
 class SinglyLinkedList{
@@ -35,5 +33,5 @@ class SinglyLinkedList{
         }
         return this.#length++;
     }
+   
 }
- 
