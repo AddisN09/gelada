@@ -63,5 +63,15 @@ class SinglyLinkedList{
         return ++this.#length;
     }
    }
+   removeStart(){
+    if(this.isEmpty){
+        throw  new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+    }
+    let removedValue=this.#head.value;
+    this.#head=this.#head.next;
+    --this.#length;
+    return removedValue;
+   }
 }
+ 
   
