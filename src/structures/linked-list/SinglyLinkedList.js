@@ -39,5 +39,29 @@ class SinglyLinkedList{
     this.#head=newNode;
     return ++this.#length;
    }
+   insertAt(value, index){
+    if(!Number.isInteger(index)){
+        throw new AppErrors.InvalidIndexError(` "${index}"  index value must be integer`);
+    }
+    if(index<0 || index>this.#length){
+        throw new AppErrors.InvalidIndexError(` "${index}"  index value must greater or equal to 0 and less or equal to ${this.#length}`);
+    }
+    if(index===0){
+        return this.prepend(value);
+    }
+    else if(index===this.#length){
+        return this.append(value);
+    }
+    else{
+        const newNode=new Node(value);
+        let temp=this.#head;
+        for(let i=0;i<index-1;i++){
+            temp=temp.next;
+        }
+        newNode.next=temp.next;
+        temp.next=newNode;
+        return ++this.#length;
+    }
+   }
 }
- 
+  
