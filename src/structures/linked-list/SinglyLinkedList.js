@@ -96,5 +96,35 @@ class SinglyLinkedList {
             return removedValue;
         }
     }
+     removeAt(index){
+        if(!Number.isInteger(index)){
+            throw new AppErrors.InvalidIndexError(` "${index}"  index value must be integer`);
+        }
+        if (index < 0 || index > this.#length-1) {
+            throw new AppErrors.InvalidIndexError(` "${index}"  index value must greater or equal to 0 and less or equal to ${this.#length-1}`);
+        }
+        if (this.isEmpty) {
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+        }
+        if(index===0){
+            return this.removeStart();
+        }
+        else if(index===this.#length-1){
+            return this.removeEnd();
+        }
+        else{
+            let temp=this.#head;
+            let priv=null;
+            for(let i=0; i<index; i++){
+                priv=temp;
+                temp=temp.next;
+            }
+            let removedValue=temp.value;
+            priv=temp.next;
+            temp=null;
+            --this.#length;
+            return removedValue;
+        }
+    }
 }
- 
+  
