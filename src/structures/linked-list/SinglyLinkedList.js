@@ -126,5 +126,36 @@ class SinglyLinkedList {
             return removedValue;
         }
     }
+    removeValue(value){
+         if (this.isEmpty) {
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+        }
+        let temp=this.#head;
+        let priv=null;
+        while(temp){
+            if(temp.value===value){
+                break;
+            }
+            priv=temp;
+            temp=temp.next;
+        }
+        if(!temp){
+            throw new AppErrors.ValueNotFoundError(` ${value} not found in this ${this.constructor.name}`);
+        }
+        if(priv){
+            let removedValue=temp.value;
+            priv.next=temp.next; 
+            temp=null;
+            --this.#length;
+            return removedValue;
+        }
+        else{
+            let removedValue=this.#head.value;
+            this.#head=this.#head.next;
+            temp=null;
+            --this.#length;
+            return removedValue;
+        }
+    }
 }
-  
+   
