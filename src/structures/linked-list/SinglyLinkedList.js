@@ -179,5 +179,30 @@ class SinglyLinkedList {
         }
         return
     }
+    #insertNode(sorted,current){
+        if(!sorted || sorted.value>current.value){
+            current.next=sorted;
+            sorted=current;
+            return current;
+        }
+        let temp=sorted;
+        while(temp.next && temp.next.value<current.value){
+            temp=temp.next;
+        }
+        current.next=temp.next;
+        temp.next=current;
+        return sorted;
+    }
+    sort(){
+        let sorted=null;
+        let current=this.#head;
+        while(current){
+            let nextNode=current.next;
+            sorted=this.#insertNode(sorted,current);
+            current=nextNode;
+        }
+        this.#head=sorted;
+        return this;
+    }
 }
- 
+  
