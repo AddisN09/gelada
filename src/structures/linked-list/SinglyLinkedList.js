@@ -157,5 +157,8 @@ class SinglyLinkedList {
             return removedValue;
         }
     }
+    get size(){
+        return this.#length;
+    }
 }
-   
+ 
