@@ -204,5 +204,17 @@ class SinglyLinkedList {
         this.#head=sorted;
         return this;
     }
+    traverse(callback){
+       if(typeof callback !== 'function'){
+        throw new TypeError(` callback must be a function`);
+       }
+       let temp=this.#head;
+       let index=0;
+       while(temp){
+        callback(temp.value,index);
+        temp=temp.next;
+        index++;
+       }
+    }
 }
-  
+   
