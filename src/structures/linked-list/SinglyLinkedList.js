@@ -160,5 +160,14 @@ class SinglyLinkedList {
     get size(){
         return this.#length;
     }
+    toArray(){
+        let temp=this.#head;
+        let store=[];
+        while(temp){
+           store.push(temp.value);
+           temp=temp.next;
+        }
+        return store;
+    }
 }
- 
+  
