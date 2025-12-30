@@ -169,5 +169,15 @@ class SinglyLinkedList {
         }
         return store;
     }
+    find(value){
+        let temp=this.#head;
+        while(temp){
+            if(temp.value===value){
+                return temp.value;
+            }
+            temp=temp.next;
+        }
+        return
+    }
 }
-  
+ 
