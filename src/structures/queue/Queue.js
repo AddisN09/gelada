@@ -10,10 +10,7 @@ class Queue{
         this.#rear=0;
     }
     get isEmpty(){
-        if(this.#front===this.#rear){
-            return true;
-        }
-        return false;
+         return this.#front===this.#rear;
     }
     enqueue(value){
         this.#queue[this.#rear]=value;
