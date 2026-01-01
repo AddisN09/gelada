@@ -13,4 +13,8 @@ class Queue{
         }
         return false;
     }
+    enqueue(value){
+        this.#queue[this.#rear]=value;
+        ++this.#rear;
+    }
 }
