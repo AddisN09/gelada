@@ -35,5 +35,12 @@ class Queue{
          let dequeuedValue=this.#queue[this.#front];
          return dequeuedValue;
     }
+    toArray(){
+        let store=[];
+        for(let i=this.#front;i<this.#rear;i++){
+            store.push(this.#queue[i]);
+        }
+        return store;
+    }
 }
  
