@@ -7,4 +7,10 @@ class Queue{
         this.#front=0;
         this.#rear=0;
     }
+    get isEmpty(){
+        if(this.#front===this.#rear){
+            return true;
+        }
+        return false;
+    }
 }
