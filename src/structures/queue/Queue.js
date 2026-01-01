@@ -28,5 +28,12 @@ class Queue{
         ++this.#front;
         return dequeuedValue;
     }
+    peek(){
+        if(this.isEmpty){
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`)
+        }
+         let dequeuedValue=this.#queue[this.#front];
+         return dequeuedValue;
+    }
 }
  
