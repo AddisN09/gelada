@@ -50,3 +50,4 @@ class Queue{
     }
 }
   
+export{Queue};
