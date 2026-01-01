@@ -1,3 +1,5 @@
+import { AppErrors } from "../../errors.js";
+
 class Queue{
     #queue;
     #front;
@@ -16,5 +18,14 @@ class Queue{
     enqueue(value){
         this.#queue[this.#rear]=value;
         ++this.#rear;
+    }
+    dequeue(){
+        if(this.isEmpty){
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`)
+        }
+        let dequeuedValue=this.#queue[this.#front];
+        this.#front=null;
+        ++this.#front;
+        return dequeuedValue;
     }
 }
