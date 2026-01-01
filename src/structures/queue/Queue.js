@@ -1,4 +1,4 @@
-import { AppErrors } from "../../errors.js";
+import { AppErrors } from "../../errors/index.js";
 
 class Queue{
     #queue;
@@ -24,8 +24,9 @@ class Queue{
             throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`)
         }
         let dequeuedValue=this.#queue[this.#front];
-        this.#front=null;
+        this.#queue[this.#front]=null;
         ++this.#front;
         return dequeuedValue;
     }
 }
+ 
