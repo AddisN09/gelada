@@ -217,4 +217,6 @@ class SinglyLinkedList {
        }
     }
 }
+
+export {SinglyLinkedList};
    
