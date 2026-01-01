@@ -46,5 +46,10 @@ class Queue{
         let queueLength=this.#rear-this.#front;
         return queueLength;
     }
+    clear(){
+        this.#front=0;
+        this.#rear=0;
+        this.#queue=[];
+    }
 }
  
