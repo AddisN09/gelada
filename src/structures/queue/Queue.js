@@ -42,5 +42,9 @@ class Queue{
         }
         return store;
     }
+    get size(){
+        let queueLength=this.#rear-this.#front;
+        return queueLength;
+    }
 }
  
