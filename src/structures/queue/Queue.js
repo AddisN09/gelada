@@ -23,14 +23,17 @@ class Queue{
         let dequeuedValue=this.#queue[this.#front];
         this.#queue[this.#front]=null;
         ++this.#front;
+        if(this.#front===this.#rear){
+            this.clear();
+        }
         return dequeuedValue;
     }
     peek(){
         if(this.isEmpty){
             throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`)
         }
-         let dequeuedValue=this.#queue[this.#front];
-         return dequeuedValue;
+         let peekedValue=this.#queue[this.#front];
+         return peekedValue;
     }
     toArray(){
         let store=[];
@@ -49,4 +52,4 @@ class Queue{
         this.#queue=[];
     }
 }
- 
+  
