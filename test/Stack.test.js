@@ -16,7 +16,7 @@ describe('Test on Stack data structure',()=>{
     });
     test('pop throws for empty stack',()=>{
         expect(stack.isEmpty).toBeTruthy();
-        expect(()=>stack.pop()).toThrow();
+        expect(()=>stack.pop()).toThrow(`Operation not permitted on empty Stack`);
     });
     test('pop removes elements from the top',()=>{
         stack.push(100);
@@ -26,7 +26,7 @@ describe('Test on Stack data structure',()=>{
     });
      test('peek throws for empty stack',()=>{
         expect(stack.isEmpty).toBeTruthy();
-        expect(()=>stack.peek()).toThrow();
+        expect(()=>stack.peek()).toThrow(`Operation not permitted on empty Stack`);
     });
     test('peek return the top without rmoving the item',()=>{
           stack.push(100);

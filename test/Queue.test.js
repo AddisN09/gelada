@@ -16,7 +16,7 @@ describe('Tests on Queue data structure',()=>{
     });
     test('Dequeue throws error when the queue is empty',()=>{
         expect(queue.isEmpty).toBeTruthy();
-        expect(()=>queue.dequeue()).toThrow();
+        expect(()=>queue.dequeue()).toThrow(`Operation not permitted on empty Queue`);
     });
     test('Dequeue must remove items at front',()=>{
         queue.enqueue(100);
@@ -29,7 +29,7 @@ describe('Tests on Queue data structure',()=>{
     });
     test('Peek throws when the queue is empty',()=>{
         expect(queue.isEmpty).toBeTruthy();
-        expect(()=>queue.peek()).toThrow();
+        expect(()=>queue.peek()).toThrow(`Operation not permitted on empty Queue`);
     });
     test('peek return the front item without removing the item',()=>{
          queue.enqueue(100);
