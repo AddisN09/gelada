@@ -15,12 +15,12 @@ npm install gelada
 //## usage example
 
 // Import the library
-import { Stack, Queue, SinglyLinkedList } from "gelada";
+import { DS } from "gelada";
 
 /////////////////////////
 // Stack Example
 /////////////////////////
-const stack = new Stack();
+const stack = new DS.Stack();
 stack.push(10);
 stack.push(20);
 stack.push(30);
@@ -30,12 +30,12 @@ console.log(stack.pop());     // 30
 console.log(stack.toArray()); // [10, 20]
 
 stack.clear();
-console.log(stack.isEmpty()); // true
+console.log(stack.isEmpty); // true
 
 /////////////////////////
 // Queue Example
 /////////////////////////
-const queue = new Queue();
+const queue = new DS.Queue();
 queue.enqueue("a");
 queue.enqueue("b");
 queue.enqueue("c");
@@ -45,12 +45,12 @@ console.log(queue.dequeue()); // "a"
 console.log(queue.toArray()); // ["b", "c"]
 
 queue.clear();
-console.log(queue.isEmpty()); // true
+console.log(queue.isEmpty); // true
 
 /////////////////////////
 // Singly Linked List Example
 /////////////////////////
-const list = new SinglyLinkedList();
+const list = new DS.SinglyLinkedList();
 list.append(1);
 list.append(3);
 list.prepend(0);
@@ -66,8 +66,8 @@ console.log(list.toArray()); // [1, 2]
 list.removeEnd();
 console.log(list.toArray()); // [1, 2]
 
-list.sort((a, b) => b - a);  // sort descending
-console.log(list.toArray()); // [2, 1]
+list.sort();   
+console.log(list.toArray()); // [1,2]
 
 list.traverse(value => console.log(value)); // logs 2, 1
 
@@ -81,9 +81,9 @@ pop() – remove and return top item
 
 peek() – view top item
 
-isEmpty() – check if empty
+isEmpty – check if empty
 
-size() – get current size
+size – get current size
 
 toArray() – return array representation
 
@@ -97,9 +97,9 @@ dequeue() – remove and return front item
 
 peek() – view front item
 
-isEmpty() – check if empty
+isEmpty – check if empty
 
-size() – get current size
+size – get current size
 
 toArray() – return array representation
 
@@ -123,7 +123,7 @@ removeValue(value) – remove first occurrence
 
 find(value) – find node by value
 
-size() – get current size
+size – get current size
 
 toArray() – convert list to array
 
