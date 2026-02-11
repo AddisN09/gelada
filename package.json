@@ -1,0 +1,33 @@
+ {
+  "name": "gelada",
+  "version": "1.0.0",
+  "description": "A lightweight JavaScript data structure library providing Stack, Queue, and Singly Linked List.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AddisN09/gelada.git"
+  },
+  "keywords": [
+    "data-structures",
+    "stack",
+    "queue",
+    "linked-list",
+    "javascript"
+  ],
+  "author": "Addis N",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AddisN09/gelada/issues"
+  },
+  "homepage": "https://github.com/AddisN09/gelada#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
