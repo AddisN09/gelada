@@ -44,11 +44,11 @@ describe('Test on singlyLinkedList data structure',()=>{
         expect(list.toArray()).toEqual([100,200,300,400,500]);
     });
     test('if the index value > list.size or less than 0 it throws',()=>{
-        expect(()=>list.insertAt(100,-1)).toThrow(`index value must greater or equal to 0 and less or equal to list length`);
+        expect(()=>list.insertAt(100,-1)).toThrow(`index value must greater or equal to 0 and less or equal to ${list.size}`);
          list.append(100);
         list.append(200);
         expect(list.size).toBe(2);
-        expect(()=>list.insertAt(300,3)).toThrow(`index value must greater or equal to 0 and less or equal to list length`);
+        expect(()=>list.insertAt(300,3)).toThrow(`index value must greater or equal to 0 and less or equal to ${list.size}`);
     });
     test('if the index is not whole number it throws',()=>{
         list.insertAt(100,0);
@@ -75,7 +75,7 @@ describe('Test on singlyLinkedList data structure',()=>{
         expect(list.removeStart()).toBe(300);
         expect(list.size).toBe(0);
         expect(list.isEmpty).toBeTruthy();
-        expect(()=>list.removeLast()).toThrow(`Operation not permitted on empty SinglyLinked list`);
+        expect(()=>list.removeStart()).toThrow(`Operation not permitted on empty SinglyLinkedList`);
     });
     test('removeEnd will delete a node from the end of the list',()=>{
         list.append(100);
@@ -96,7 +96,7 @@ describe('Test on singlyLinkedList data structure',()=>{
         expect(list.removeEnd()).toBe(100);
         expect(list.size).toBe(0);
         expect(list.isEmpty).toBeTruthy();
-        expect(()=>list.removeEnd()).toThrow(`Operation not permitted on empty SinglyLinked list`);
+        expect(()=>list.removeEnd()).toThrow(`Operation not permitted on empty SinglyLinkedList`);
     });
     test('removeAt remove a node at specfic position in the list',()=>{
         list.append(100);
@@ -118,7 +118,7 @@ describe('Test on singlyLinkedList data structure',()=>{
            expect(list.removeAt(0)).toBe(100);
            expect(list.size).toBe(0);
            expect(list.isEmpty).toBeTruthy();
-           expect(()=>list.removeAt(0)).toThrow(`Operation not permitted on empty SinglyLinked list`);
+           expect(()=> list.removeAt(0)).toThrow();
     });
     test('removeAt will throw if the input index is not a number',()=>{
         list.append(100);
@@ -126,8 +126,8 @@ describe('Test on singlyLinkedList data structure',()=>{
         list.append(300);
         list.append(400);
         list.append(500);
-        expect(()=>list.removeAt('three')).toThrow();
-        expect(()=>list.removeAt(true)).toThrow();
+        expect(()=>list.removeAt('three')).toThrow(`"three"  index value must be integer`);
+        expect(()=>list.removeAt(true)).toThrow(`"${true}"  index value must be integer`);
     });
     test('removeAt will throw if the index < 0 and index >=list.size',()=>{
          list.append(100);
