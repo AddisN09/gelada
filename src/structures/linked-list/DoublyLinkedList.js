@@ -34,6 +34,20 @@ class DoblyLinkedList{
         let temp=this.#tail;
         temp.next=newNode;
         newNode.priv=temp;
+        this.#tail=newNode;
+        return ++this.#length;
+    }
+    prepend(value){
+         const newNode=new Node(value);
+        if(this.isEmpty){
+            this.#head=newNode;
+            this.#tail=newNode;
+            return ++this.#length;
+        }
+        let temp=this.#head;
+        temp.priv=newNode;
+        newNode.next=temp;
+        this.#head=newNode;
         return ++this.#length;
     }
 }
