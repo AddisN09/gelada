@@ -21,4 +21,7 @@ class DoblyLinkedList{
        const empty=!(this.#head && this.#tail)?true:false;
        return empty;
     }
+    get size(){
+        return this.#length;
+    }
 }
