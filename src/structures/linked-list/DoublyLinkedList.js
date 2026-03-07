@@ -50,4 +50,58 @@ class DoblyLinkedList{
         this.#head=newNode;
         return ++this.#length;
     }
+    #findNode(index){
+        const mid=Math.floor((this.#length)/2);
+        if(index<=mid){
+            let temp=this.#head;
+            for(let i=0;i<index-1;i++){
+                temp=temp.next;
+            }
+            return {
+                current:temp,
+                right:temp.next
+            }
+        }
+        else{
+            let temp=this.#tail;
+            for(let i=this.#length;i>index+1;i--){
+                temp=temp.priv;
+            }
+            return {
+                current:temp,
+                left:temp.priv
+            }
+        }
+    }
+    insertAt(value, index){
+        if(!Number.isInteger(index)){
+            throw new AppErrors.InvalidIndexError(` "${index}"  index value must be integer`);
+        }
+        if (index < 0 || index > this.#length) {
+            throw new AppErrors.InvalidIndexError(` "${index}"  index value must greater or equal to 0 and less or equal to ${this.#length}`);
+        }
+        if (index === 0) {
+            return this.prepend(value);
+        }
+        else if (index === this.#length) {
+            return this.append(value);
+        }
+        else{
+            let node=this.#findNode(index);
+             const mid=Math.floor((this.#length)/2);
+            if(index<=mid){
+                node.current.next=newNode;
+                newNode.priv=node.current;
+                node.right.priv=newNode;
+                newNode.next=node.right;
+            }
+            else{
+                node.current.priv=newNode;
+                newNode.next=node.current;
+                node.left.next=newNode;
+                newNode.priv=node.left;
+            }
+            return ++this.#length;
+        }
+    }
 }
