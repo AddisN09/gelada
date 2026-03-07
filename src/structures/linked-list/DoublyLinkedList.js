@@ -17,5 +17,8 @@ class DoblyLinkedList{
        this.#tail=null;
        this.#length=0;
     }
-    
+    get isEmpty(){
+       const empty=!(this.#head && this.#tail)?true:false;
+       return empty;
+    }
 }
