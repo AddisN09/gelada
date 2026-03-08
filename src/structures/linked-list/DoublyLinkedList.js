@@ -102,6 +102,22 @@ class DoblyLinkedList{
                 newNode.priv=node.left;
             }
             return ++this.#length;
+        } 
+    }
+    removeHead(){
+        if(this.isEmpty){
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
         }
+        if(this.#head === this.#tail){
+            this.#head=null;
+            this.#tail=null;
+            return --this.#length;
+        }
+        let temp=this.#head.next;
+        this.#head.next=null;
+        temp.priv=null;
+        this.#head=temp;
+        return --this.#length;
+
     }
 }
