@@ -227,4 +227,26 @@ class DoblyLinkedList {
             return this.#removeNode(right,left,temp);
         }
     }
+    toArray(startingPoint){
+        let type=typeof startingPoint;
+        if(!(type==='string')){
+            throw new AppErrors.ValueTypeError(` "${startingPoint}" : The startingPoint argument type must be string`);
+        }
+         let store=[];
+        if(startingPoint==='Head'){
+            let temp=this.#head;
+            while(temp){
+                store.push(temp.value);
+                temp=temp.next;
+            }
+        }
+        if(startingPoint==='Tail'){
+            let temp=this.#tail;
+            while(temp){
+                store.push(temp.value);
+                temp=temp.priv;
+            }
+        }
+        return store;
+    }
 }
