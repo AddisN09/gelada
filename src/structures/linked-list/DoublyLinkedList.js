@@ -192,8 +192,8 @@ class DoblyLinkedList {
         if (this.isEmpty) {
             throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
         }
-        let type=typeof startingPoint;
-        if(!(type==='string')){
+        let type = typeof startingPoint;
+        if (!(type === 'string')) {
             throw new AppErrors.ValueTypeError(` "${startingPoint}" : The startingPoint argument type must be string`);
         }
         if (startingPoint === 'Head') {
@@ -207,46 +207,79 @@ class DoblyLinkedList {
             if (!temp) {
                 throw new AppErrors.ValueNotFoundError(` ${value} not found in this ${this.constructor.name}`);
             }
-            let left=temp.priv;
-            let right=temp.next;
-            return this.#removeNode(right,left,temp);
+            let left = temp.priv;
+            let right = temp.next;
+            return this.#removeNode(right, left, temp);
         }
-        if(startingPoint==='Tail'){
-            let temp=this.#tail;
-            while(temp){
-                if(temp.value===value){
+        if (startingPoint === 'Tail') {
+            let temp = this.#tail;
+            while (temp) {
+                if (temp.value === value) {
                     break;
                 }
-                temp=temp.priv;
+                temp = temp.priv;
             }
             if (!temp) {
                 throw new AppErrors.ValueNotFoundError(` ${value} not found in this ${this.constructor.name}`);
             }
-            let left=temp.priv;
-            let right=temp.next;
-            return this.#removeNode(right,left,temp);
+            let left = temp.priv;
+            let right = temp.next;
+            return this.#removeNode(right, left, temp);
         }
     }
-    toArray(startingPoint){
-        let type=typeof startingPoint;
-        if(!(type==='string')){
+    toArray(startingPoint) {
+        let type = typeof startingPoint;
+        if (!(type === 'string')) {
             throw new AppErrors.ValueTypeError(` "${startingPoint}" : The startingPoint argument type must be string`);
         }
-         let store=[];
-        if(startingPoint==='Head'){
-            let temp=this.#head;
-            while(temp){
+        let store = [];
+        if (startingPoint === 'Head') {
+            let temp = this.#head;
+            while (temp) {
                 store.push(temp.value);
-                temp=temp.next;
+                temp = temp.next;
             }
         }
-        if(startingPoint==='Tail'){
-            let temp=this.#tail;
-            while(temp){
+        if (startingPoint === 'Tail') {
+            let temp = this.#tail;
+            while (temp) {
                 store.push(temp.value);
-                temp=temp.priv;
+                temp = temp.priv;
             }
         }
         return store;
+    }
+    find(value, startingPoint) {
+        if (this.isEmpty) {
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+        }
+        let type = typeof startingPoint;
+        if (!(type === 'string')) {
+            throw new AppErrors.ValueTypeError(` "${startingPoint}" : The startingPoint argument type must be string`);
+        }
+        if (startingPoint === 'Head') {
+            let temp = this.#head;
+            while (temp) {
+                if (temp.value === value) {
+                    return temp.value;
+                }
+                temp = temp.next;
+            }
+            if (!temp) {
+                throw new AppErrors.ValueNotFoundError(` ${value} not found in this ${this.constructor.name}`);
+            }
+            if (startingPoint === 'Tail') {
+                let temp = this.#tail;
+                while (temp) {
+                    if (temp.value === value) {
+                        return temp.value;
+                    }
+                    temp = temp.priv;
+                }
+                if (!temp) {
+                    throw new AppErrors.ValueNotFoundError(` ${value} not found in this ${this.constructor.name}`);
+                }
+            }
+        }
     }
 }
