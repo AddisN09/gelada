@@ -120,4 +120,19 @@ class DoblyLinkedList{
         return --this.#length;
 
     }
+    removeTail(){
+         if(this.isEmpty){
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+        }
+        if(this.#head === this.#tail){
+            this.#head=null;
+            this.#tail=null;
+            return --this.#length;
+        }
+        let temp=this.#tail.priv;
+        this.#tail.priv=null;
+        temp.next=null;
+        this.#tail=temp;
+        return --this.#length;
+    }
 }
