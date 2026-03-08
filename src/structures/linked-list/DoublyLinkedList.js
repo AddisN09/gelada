@@ -135,4 +135,40 @@ class DoblyLinkedList{
         this.#tail=temp;
         return --this.#length;
     }
+    removeAt(index){
+      if(!Number.isInteger(index)){
+        throw new AppErrors.InvalidIndexError(` "${index}"  index value must be integer`);
+      }
+      if(index<0 || index>this.#length-1){
+         throw new AppErrors.InvalidIndexError(` "${index}"  index value must greater or equal to 0 and less or equal to ${this.#length-1}`);
+      }
+      if (this.isEmpty) {
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+      }
+      if(index===0){
+        return this.removeHead();
+      }
+      if(index===this.#length-1){
+        return this.removeTail();
+      }
+      else{
+        let node=this.#findNode(index);
+        const mid=Math.floor((this.#length)/2);
+        if(index<=mid){
+            let left=node.current.priv;
+            node.right.priv=left;
+            left.next=node.right;
+            node.current.next=null;
+            node.current.priv=null;
+        }
+        else{
+            let right=node.current.next;
+            node.left.next=right;
+            right.priv=node.left;
+            node.current.next=null;
+            node.current.priv=null;
+        }
+        return --this.#length;
+      }
+    }
 }
