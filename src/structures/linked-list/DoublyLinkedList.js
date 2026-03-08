@@ -265,20 +265,20 @@ class DoblyLinkedList {
                 }
                 temp = temp.next;
             }
+        }
+        if (!temp) {
+            throw new AppErrors.ValueNotFoundError(` ${value} not found in this ${this.constructor.name}`);
+        }
+        if (startingPoint === 'Tail') {
+            let temp = this.#tail;
+            while (temp) {
+                if (temp.value === value) {
+                    return temp.value;
+                }
+                temp = temp.priv;
+            }
             if (!temp) {
                 throw new AppErrors.ValueNotFoundError(` ${value} not found in this ${this.constructor.name}`);
-            }
-            if (startingPoint === 'Tail') {
-                let temp = this.#tail;
-                while (temp) {
-                    if (temp.value === value) {
-                        return temp.value;
-                    }
-                    temp = temp.priv;
-                }
-                if (!temp) {
-                    throw new AppErrors.ValueNotFoundError(` ${value} not found in this ${this.constructor.name}`);
-                }
             }
         }
     }
