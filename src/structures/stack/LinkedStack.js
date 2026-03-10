@@ -30,6 +30,9 @@ class LinkedStack{
             throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
         }
     }
+    get size(){
+        return this.#stack.size;
+    }
 }
 
  
