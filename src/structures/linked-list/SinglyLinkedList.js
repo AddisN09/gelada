@@ -204,6 +204,13 @@ class SinglyLinkedList {
         this.#head=sorted;
         return this;
     }
+    peekStart(){
+        if(isEmpty){
+             throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+        }
+        let startValue=this.#head.value;
+        return startValue;
+    }
     traverse(callback){
        if(typeof callback !== 'function'){
         throw new TypeError(` callback must be a function`);
