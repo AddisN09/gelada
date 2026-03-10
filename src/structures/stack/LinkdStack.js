@@ -8,4 +8,8 @@ class LinkedStack{
     get isEmpty(){
         return this.#stack.isEmpty;
     }
+    push(value){
+        this.#stack.prepend(value);
+        return this.#stack.size;
+    }
 }
