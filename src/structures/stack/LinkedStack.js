@@ -42,4 +42,4 @@ class LinkedStack{
     }
 }
 
- 
+ export{LinkedStack};
