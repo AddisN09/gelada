@@ -36,6 +36,10 @@ class LinkedStack{
     clear(){
         this.#stack.clear();
     }
+    toArray(){
+       let arrayStackValue=this.#stack.toArray();
+       return arrayStackValue.reverse();
+    }
 }
 
  
