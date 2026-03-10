@@ -22,6 +22,14 @@ class LinkedStack{
             throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
         }
     }
+    peek(){
+        try{
+            return this.#stack.peekStart();
+        }
+        catch(err){
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+        }
+    }
 }
 
  
