@@ -211,6 +211,9 @@ class SinglyLinkedList {
         let startValue=this.#head.value;
         return startValue;
     }
+    clear(){
+        this.#head=null;
+    }
     traverse(callback){
        if(typeof callback !== 'function'){
         throw new TypeError(` callback must be a function`);
