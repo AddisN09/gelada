@@ -5,4 +5,7 @@ class LinkedStack{
     constructor(){
         this.#stack=new SinglyLinkedList();
     }
+    get isEmpty(){
+        return this.#stack.isEmpty;
+    }
 }
