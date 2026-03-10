@@ -33,6 +33,9 @@ class LinkedStack{
     get size(){
         return this.#stack.size;
     }
+    clear(){
+        this.#stack.clear();
+    }
 }
 
  
