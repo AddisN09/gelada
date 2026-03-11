@@ -15,61 +15,74 @@ npm install gelada
 //## usage example
 
 // Import the library
-import { DS } from "gelada";
+ import { DS } from "gelada";
 
 /////////////////////////
 // Stack Example
 /////////////////////////
-const stack = new DS.Stack();
-stack.push(10);
+const stack = new DS.Stack();  Time-complexity=O(1) space-complexity=O(1)
+stack.push(10);         Time-complexity=O(1) space-complexity=O(1)
 stack.push(20);
 stack.push(30);
 
-console.log(stack.peek());    // 30
-console.log(stack.pop());     // 30
-console.log(stack.toArray()); // [10, 20]
+console.log(stack.peek());    // 30   Time-complexity=O(1) space-complexity=O(1)
+console.log(stack.pop());     // 30   Time-complexity=O(1) space-complexity=O(1)
+console.log(stack.toArray()); // [10, 20]   Time-complexity=O(n) space-complexity=O(n)
 
-stack.clear();
-console.log(stack.isEmpty); // true
+stack.clear();                 Time-complexity=O(1) space-complexity=O(1)
+console.log(stack.isEmpty); // true       Time-complexity=O(1) space-complexity=O(1)
 
 /////////////////////////
 // Queue Example
 /////////////////////////
-const queue = new DS.Queue();
-queue.enqueue("a");
+const queue = new DS.Queue();    Time-complexity=O(1) space-complexity=O(1)
+queue.enqueue("a");              Time-complexity=O(1) space-complexity=O(1)
 queue.enqueue("b");
 queue.enqueue("c");
 
-console.log(queue.peek());    // "a"
-console.log(queue.dequeue()); // "a"
-console.log(queue.toArray()); // ["b", "c"]
+console.log(queue.peek());    // "a"    Time-complexity=O(1) space-complexity=O(1)
+console.log(queue.dequeue()); // "a"     Time-complexity=O(1) space-complexity=O(1)
+console.log(queue.toArray()); // ["b", "c"]    Time-complexity=O(n) space-complexity=O(n)
 
-queue.clear();
-console.log(queue.isEmpty); // true
+queue.clear();     Time-complexity=O(1) space-complexity=O(1)
+console.log(queue.isEmpty); // true        Time-complexity=O(1) space-complexity=O(1)
 
 /////////////////////////
 // Singly Linked List Example
 /////////////////////////
-const list = new DS.SinglyLinkedList();
-list.append(1);
+const list = new DS.SinglyLinkedList();     Time-complexity=O(1) space-complexity=O(1)
+list.append(1);            Time-complexity=O(n) space-complexity=O(1)
 list.append(3);
-list.prepend(0);
+list.prepend(0);          Time-complexity=O(1) space-complexity=O(1)
+
+console.log(list.isEmpty);  // false       Time-complexity=O(1) space-complexity=O(1)
 
 console.log(list.toArray()); // [0, 1, 3]
 
-list.insertAt(2, 2);        // insert 2 at index 2
-console.log(list.toArray()); // [0, 1, 2, 3]
+list.insertAt(2, 2);        // insert 2 at index 2       Time-complexity=O(n) space-complexity=O(1)
+console.log(list.toArray()); // [0, 1, 2, 3]     Time-complexity=O(n) space-complexity=O(n)
 
-list.removeStart();
-console.log(list.toArray()); // [1, 2]
+list.insertAt(4, 4);        // insert 4 at index  4      Time-complexity=O(n) space-complexity=O(1)
+console.log(list.toArray()); // [0, 1, 2, 3, 4] 
 
-list.removeEnd();
-console.log(list.toArray()); // [1, 2]
+list.insertAt(-1, 0);        // insert 2 at index 2       Time-complexity=O(n) space-complexity=O(1)
+console.log(list.toArray()); // [-1, 0, 1, 2, 3, 4] 
 
-list.sort();   
+list.removeStart();                          Time-complexity=O(1) space-complexity=O(1)
+console.log(list.toArray()); //  [0, 1, 2, 3, 4] 
+
+list.removeEnd();                         Time-complexity=O(n) space-complexity=O(1)
+console.log(list.toArray()); //  [0, 1, 2, 3]   
+
+list.removeAt(0);                   Time-complexity=O(n) space-complexity=O(1)
+console.log(list.toArray()); //   [1, 2, 3]
+
+console.log(list.find(3));    // 3   Time-complexity=O(n) space-complexity=O(1)
+
+list.sort();                                 Time-complexity=O(n) space-complexity=O(n)
 console.log(list.toArray()); // [1,2]
 
-list.traverse(value => console.log(value)); // logs 2, 1
+list.traverse(value => console.log(value)); // logs 2, 1     Time-complexity=O(n) space-complexity=O(n)
 
 
 🚀 Features / API (v1)
@@ -155,4 +168,4 @@ gelada/
 └── package.json
 
 
-MIT License © Addis Negash
+MIT License © Addis
