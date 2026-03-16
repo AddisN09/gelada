@@ -1,4 +1,4 @@
-import { DSError } from "./DSError";
+import { DSError } from "./DSError.js";
 
 class ValueTypeError extends DSError{
     constructor(message){
