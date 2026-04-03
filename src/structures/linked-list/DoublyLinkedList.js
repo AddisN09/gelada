@@ -330,5 +330,10 @@ class DoblyLinkedList {
         let right = sort(rightEnd, end);
         this.#merge(left, right);
     }
+    clear(){
+        this.#head=null;
+        this.#tail=null;
+    }
+    
 }
 
