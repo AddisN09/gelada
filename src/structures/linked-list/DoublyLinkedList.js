@@ -340,5 +340,11 @@ class DoblyLinkedList {
         }
         return this.#head.value;
     }
+    peekEndValue(){
+        if(this.isEmpty){
+            throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
+        }
+        return this.#tail.value;
+    }
 }
 
