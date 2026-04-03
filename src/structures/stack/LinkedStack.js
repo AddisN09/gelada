@@ -1,6 +1,6 @@
 import {SinglyLinkedList} from '../linked-list/SinglyLinkedList.js';
 import { AppErrors } from '../../errors/index.js';
-class LinkedStack{
+class SLinkedStack{
     #stack;
     constructor(){
         this.#stack=new SinglyLinkedList();
@@ -42,4 +42,4 @@ class LinkedStack{
     }
 }
 
- export{LinkedStack};
+ export{SLinkedStack};
