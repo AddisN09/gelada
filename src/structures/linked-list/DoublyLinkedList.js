@@ -5,6 +5,7 @@ class Node {
         this.value = value;
         this.next = null;
         this.priv = null;
+        this.priority = null;
     }
 }
 
@@ -87,6 +88,7 @@ class DoblyLinkedList {
             return this.append(value);
         }
         else {
+            const newNode = new Node(value);
             let node = this.#findNode(index);
             const mid = Math.floor((this.#length) / 2);
             if (index <= mid) {
@@ -282,4 +284,51 @@ class DoblyLinkedList {
             }
         }
     }
+    #findMid(start, end) {
+        let slow = start;
+        let fast = start.next;
+        while (fast && fast.next) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    #merge(left, right) {
+        let dummy = new Node(0);
+        let temp = dummy;
+        while (left && right) {
+            if (left.value < right.value) {
+                temp.next = left;
+                left.priv = temp;
+                left = left.next;
+            }
+            else {
+                temp.next = right;
+                right.priv = temp;
+                right = right.next;
+            }
+            temp = temp.next;
+        }
+        let rest = left || right;
+        while (rest) {
+            temp.next = rest;
+            rest.priv = temp;
+            rest = rest.next;
+        }
+
+        this.#head = dummy.next;
+        if (this.#head) this.#head.priv = null;
+        this.#tail = temp;
+    }
+    sort(start = this.#head, end = this.#tail) {
+        if (start === end) return this.#head;
+        let mid = this.#findMid(start, end);
+        let rightEnd = mid.next;
+        mid.next = null;
+        if (rightEnd) rightEnd.priv = null;
+        let left = sort(start, mid);
+        let right = sort(rightEnd, end);
+        this.#merge(left, right);
+    }
 }
+
