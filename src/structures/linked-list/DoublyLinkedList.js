@@ -334,13 +334,13 @@ class DoblyLinkedList {
         this.#head=null;
         this.#tail=null;
     }
-    peekStart(){
+    peekStartValue(){
         if(this.isEmpty){
             throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
         }
         return this.#head.value;
     }
-    peekEnd(){
+    peekEndValue(){
         if(this.isEmpty){
             throw new AppErrors.EmptyStructureError(`Operation not permitted on empty ${this.constructor.name}`);
         }
